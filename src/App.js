@@ -1,24 +1,21 @@
-import React, { useState } from "react"
+import React from "react"
 import Dashboard from "./Components/Dashboard"
 import Login from "./Components/Login"
 import "./CSS/App.css"
 
 function App () {
-  let whichPage = "Dashboard"
+  const [whichPage, setWhichPage] = React.useState("Login")
 
   const renderPage = () => {
     switch (whichPage){
       case "Dashboard":
-        return <Dashboard/>
+        return <Dashboard setWhichPage = {setWhichPage}/>
       case "Login":
-        return <Login/>
+        return <Login setWhichPage = {setWhichPage}/>
       default:
-        return <Login/>
+        return <Login setWhichPage = {setWhichPage}/>
     }
   }
-
-  console.log("whichPage is ")
-  console.log(whichPage)
 
   return (
     <div className="App">
